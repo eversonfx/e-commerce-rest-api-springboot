@@ -1,5 +1,8 @@
 package com.everson.cursomc.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -14,10 +17,12 @@ public class Endereco {
     private String bairro;
     private String cep;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name="cliente_id")
     private Cliente cliente;
 
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name="cidade_id")
     private Cidade cidade;
