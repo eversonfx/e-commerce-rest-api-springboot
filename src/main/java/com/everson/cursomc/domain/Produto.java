@@ -1,5 +1,7 @@
 package com.everson.cursomc.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +25,12 @@ public class Produto {
         tipo de relacionamento. Logo depois com  [joinColumns = @JoinColumn]
         especificamos qual será a chave estrangeira referenciaando
         essa e a outra tabela que fazem parte da relação.
+
+        @JsonBackReference - Do outro lado da relação já foram buscados os
+        elementos então agora eu não busco mais, ele vai omitir a lista de
+        categorias para cada produto
      */
+    @JsonBackReference
     @ManyToMany
     @JoinTable(name = "PRODUTO_CATEGORIA",
             joinColumns = @JoinColumn(name = "produto_id"),
