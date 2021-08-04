@@ -1,7 +1,7 @@
 package com.everson.cursomc.domain;
 
 import com.everson.cursomc.domain.enums.EstadoPagamento;
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -22,7 +22,7 @@ public abstract class Pagamento {
             uma gerada especificamente para ela
      */
 
-    @JsonBackReference
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name="pedido_id")
     @MapsId

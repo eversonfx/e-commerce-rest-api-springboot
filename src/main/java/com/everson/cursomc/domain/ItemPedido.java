@@ -1,7 +1,6 @@
 package com.everson.cursomc.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;

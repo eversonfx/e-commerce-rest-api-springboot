@@ -1,7 +1,5 @@
 package com.everson.cursomc.domain;
 
-import org.hibernate.mapping.Join;
-
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;

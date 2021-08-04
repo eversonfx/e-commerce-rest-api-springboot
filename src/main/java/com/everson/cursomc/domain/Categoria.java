@@ -1,7 +1,5 @@
 package com.everson.cursomc.domain;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -18,11 +16,11 @@ public class Categoria implements Serializable {
          @ManyToMany(mappedBy = "categorias") - Dizemos que esse relacionamento é
          somente o "outro lado" do mapeamento feito em cima do atributo "categorias";
 
-         @JsonManagedReference - Para avisarmos que está tudo bem em serializar
+          - Para avisarmos que está tudo bem em serializar
          os produtos. Uma referência gerenciada pelo Json. Isto é feito do lado em que
          queremos que os objetos venham serializados dentro desse objeto.
      */
-    @JsonManagedReference
+    
     @ManyToMany(mappedBy = "categorias")
     private List<Produto> produtos = new ArrayList<>();
 
