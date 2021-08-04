@@ -22,7 +22,7 @@ public class PedidoResource {
         várias informações de uma reposta Http para um serviço Rest
      */
     @RequestMapping(value="/{id}", method=RequestMethod.GET)
-    public ResponseEntity<?> find(@PathVariable Integer id) {
+    public ResponseEntity<Pedido> find(@PathVariable Integer id) {
         Pedido obj = service.buscar(id);
         return ResponseEntity.ok().body(obj);
     }
