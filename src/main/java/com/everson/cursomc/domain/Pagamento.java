@@ -1,6 +1,7 @@
 package com.everson.cursomc.domain;
 
 import com.everson.cursomc.domain.enums.EstadoPagamento;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -20,6 +21,8 @@ public abstract class Pagamento {
             No caso a tabela Pagamento terá como chave primária o Id do pedido e não
             uma gerada especificamente para ela
      */
+
+    @JsonBackReference
     @OneToOne
     @JoinColumn(name="pedido_id")
     @MapsId

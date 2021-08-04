@@ -1,5 +1,6 @@
 package com.everson.cursomc.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.cache.spi.support.AbstractReadWriteAccess;
 
 import javax.persistence.EmbeddedId;
@@ -14,9 +15,13 @@ public class ItemPedido implements Serializable {
 
     /*
          @EmbeddedId - Um Id embutido em um tipo auxiliar
+         @JsonIgnore - Não sera serializado
      */
+
+    @JsonIgnore
     @EmbeddedId
     private ItemPedidoPK id = new ItemPedidoPK();
+
     private Double desconto;
     private Integer quantidade;
     private Double preco;
@@ -31,6 +36,7 @@ public class ItemPedido implements Serializable {
         this.preco = preco;
     }
 
+    @JsonIgnore
     public Pedido getPedido() {
         return id.getPedido();
     }
@@ -38,6 +44,7 @@ public class ItemPedido implements Serializable {
     public Produto getProduto() {
         return id.getProduto();
     }
+
     public ItemPedidoPK getId() {
         return id;
     }

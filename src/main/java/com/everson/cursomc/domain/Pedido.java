@@ -1,5 +1,8 @@
 package com.everson.cursomc.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
@@ -12,15 +15,20 @@ public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     private Date instante;
     /*
         cascade=CascadeType.ALL - É necessário para evitar
         um erro de entidade transiente quando você vai salvar um pedido
         e seu pagamento, é uma peculiaridade do JPA.
      */
+    @JsonManagedReference
     @OneToOne(cascade=CascadeType.ALL, mappedBy = "pedido")
     private Pagamento pagamento;
 
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name="cliente_id")
     private Cliente cliente;
