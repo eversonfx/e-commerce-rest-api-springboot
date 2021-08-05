@@ -1,11 +1,13 @@
 package com.everson.cursomc.dto;
 
 import com.everson.cursomc.domain.Cliente;
+import com.everson.cursomc.services.validation.ClienteUpdate;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
+@ClienteUpdate
 public class ClienteDTO {
     private Integer id;
 
