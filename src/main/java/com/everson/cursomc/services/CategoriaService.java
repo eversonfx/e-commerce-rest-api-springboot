@@ -1,6 +1,7 @@
 package com.everson.cursomc.services;
 
 import com.everson.cursomc.domain.Categoria;
+import com.everson.cursomc.domain.Categoria;
 import com.everson.cursomc.dto.CategoriaDTO;
 import com.everson.cursomc.repositories.CategoriaRepository;
 import com.everson.cursomc.services.exceptions.DataIntegrityException;
@@ -36,15 +37,16 @@ public class CategoriaService {
     }
 
     public Categoria update(Categoria obj) {
-        find(obj.getId());
-        return repo.save(obj);
+        Categoria newObj = find(obj.getId());
+        updateData(newObj, obj);
+        return repo.save(newObj);
     }
 
     public void delete(Integer id) {
         find(id);
         try {
             repo.deleteById(id);
-        } catch(DataIntegrityViolationException e) {
+        } catch (DataIntegrityViolationException e) {
             throw new DataIntegrityException("Não é possível excluir uma categoria que possui produtos");
         }
     }
@@ -60,5 +62,9 @@ public class CategoriaService {
 
     public Categoria fromDTO(CategoriaDTO objDto) {
         return new Categoria(objDto.getId(), objDto.getNome());
+    }
+
+    private void updateData(Categoria newObj, Categoria obj) {
+        newObj.setNome(obj.getNome());
     }
 }

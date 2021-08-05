@@ -11,7 +11,7 @@ import java.util.Objects;
      com a estratégia de geração de tabelas no banco
  */
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Pagamento {
     @Id
     private Integer id;
@@ -24,7 +24,7 @@ public abstract class Pagamento {
 
     @JsonIgnore
     @OneToOne
-    @JoinColumn(name="pedido_id")
+    @JoinColumn(name = "pedido_id")
     @MapsId
     private Pedido pedido;
 
@@ -33,7 +33,7 @@ public abstract class Pagamento {
 
     public Pagamento(Integer id, EstadoPagamento estado, Pedido pedido) {
         this.id = id;
-        this.estado = estado.getCod();
+        this.estado = (estado == null) ? null : estado.getCod();
         this.pedido = pedido;
     }
 
