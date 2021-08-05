@@ -16,7 +16,7 @@ public class Cliente {
     private String cpfOuCnpj;
     private Integer tipo;
 
-    
+
     @OneToMany(mappedBy = "cliente")
     private List<Endereco> enderecos = new ArrayList<>();
 
@@ -28,7 +28,7 @@ public class Cliente {
         @CollectionTable - Indicamos o nome da tabela para armazenar essa entidade fraca
      */
     @ElementCollection
-    @CollectionTable(name="TELEFONE")
+    @CollectionTable(name = "TELEFONE")
     private Set<String> telefones = new HashSet<>();
 
     @JsonIgnore
@@ -43,7 +43,7 @@ public class Cliente {
         this.nome = nome;
         this.email = email;
         this.cpfOuCnpj = cpfOuCnpj;
-        this.tipo = tipo.getCod();
+        this.tipo = (tipo == null) ? null : tipo.getCod();
     }
 
     public Integer getId() {
