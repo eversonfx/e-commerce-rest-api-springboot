@@ -2,7 +2,7 @@
 
 ##### :open_book: About
 
-Complete fullstack e-commerce project done in the course: "Spring Boot, Hibernate, REST, Ionic, JWT, S3, MySQL, MongoDB"
+Complete fullstack e-commerce project done in the course: "Spring Boot, Hibernate, REST, Ionic, JWT, S3, MySQL, MongoDB" by Nelio Alves:
 
 ##### ⚙️ Technologies & Tool
 
@@ -17,7 +17,7 @@ To run the project in the terminal, type the following command:
 mvn spring-boot:run 
 ```
 
-The application follows the restfull pattern, so it is possible to make requests on the following endpoints"by Nelio Alves:
+The application follows the restfull pattern, so it is possible to make requests on the following endpoints"
 
 ```
 http://localhost:8080/clientes
